@@ -1,4 +1,5 @@
 <template>
+
     <nav class="navbar">
         <ul class="navList">
             <li>
@@ -12,7 +13,12 @@
             </li>
         </ul>
     </nav>
+
 </template>
+
+<script>
+
+</script>
 
 <style>
 .navList {
