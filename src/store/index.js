@@ -7,7 +7,8 @@ import getters from "./getters";
 const store = createStore({
   state() {
     return {
-      products: [],
+      loadedProducts: [],
+      likedProducts: [],
     };
   },
   mutations,

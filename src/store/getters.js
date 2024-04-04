@@ -1,5 +1,8 @@
 export default {
   fetchedProducts(state) {
-    return state.products;
+    return state.loadedProducts;
+  },
+  likedProducts(state) {
+    return state.likedProducts;
   },
 };

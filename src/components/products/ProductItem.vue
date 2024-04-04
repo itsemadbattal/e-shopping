@@ -3,8 +3,12 @@
         <img :src="image" alt="product image" />
         <p>{{ title }}</p>
         <div class="info">
-            <p class="price">{{ price }}</p>
-            <p>Size: S M L</p>
+            <strong>
+                <p class="price">{{ price }}IQD</p>
+            </strong>
+            <strong>
+                <p>Size: S M L</p>
+            </strong>
         </div>
     </li>
 </template>
