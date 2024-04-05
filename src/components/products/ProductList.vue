@@ -1,6 +1,6 @@
 <template>
     <ul class="productList">
-        <base-card v-for="product in products">
+        <base-card v-for="product in products" :key="product.id">
             <product-item :product="product" />
         </base-card>
     </ul>

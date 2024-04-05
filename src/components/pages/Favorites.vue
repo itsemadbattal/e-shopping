@@ -1,7 +1,7 @@
 <template>
 
-    <div>
-
+    <div v-for="fav in favs" :key="fav.id">
+        <p>{{ fav.title }}</p>
     </div>
 
 </template>
