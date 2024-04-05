@@ -1,8 +1,8 @@
 <template>
     <ul class="productList">
-        <base-card v-for="product in products" :key="product.id">
-            <product-item :id="product.id" :title="product.title" :price="product.price"
-                :description="product.description" :image="product.image" />
+        <base-card v-for="product in products">
+            <product-item :key="product.id" :id="product.id" :title="product.title" :price="product.price"
+                :description="product.description" :image="product.image" :rating="product.rating" />
         </base-card>
     </ul>
 </template>
@@ -26,5 +26,28 @@ export default {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-left: 5rem;
+    animation: slideFromButtom 0.3s ease-in;
+}
+
+
+@media (max-width: 766px) {
+    .productList {
+        margin-left: 0;
+    }
+
+}
+
+
+@keyframes slideFromButtom {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 </style>

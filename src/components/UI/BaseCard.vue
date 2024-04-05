@@ -12,7 +12,7 @@
     padding: 1rem;
     margin: 2rem auto;
     width: 30rem;
-    height: 16rem;
+    height: 18rem;
     background-color: #fff;
 }
 

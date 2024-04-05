@@ -1,10 +1,20 @@
 <template>
-    <ul class="productList">
-        <base-card>
-            <product-item :id="product.id" :title="product.title" :price="product.price"
-                :description="product.description" :image="product.image" />
-        </base-card>
-    </ul>
+    <li class="product" @click="navigateToProduct">
+        <div class="image-container">
+            <img :src="product.image" alt="product image" />
+        </div>
+        <div class="details">
+            <p>{{ product.title }}</p>
+            <div class="info">
+                <strong>
+                    <p class="price">{{ product.price }}IQD</p>
+                </strong>
+                <strong>
+                    <p>Size: S M L</p>
+                </strong>
+            </div>
+        </div>
+    </li>
 </template>
 
 
@@ -25,12 +35,30 @@ export default {
 }
 </script>
 
-<style>
-img {
-    width: 100%;
-    height: 8rem;
-    object-fit: contain;
+<style scoped>
+.product {
+
     margin-bottom: 2rem;
+}
+
+.image-container {
+    flex: 1;
+    /* This makes the image container take up remaining space */
+    margin-right: 1rem;
+    /* Add some spacing between image and details */
+}
+
+.image-container img {
+    width: 20%;
+    height: 20%;
+    object-fit: contain
+}
+
+.details {
+    flex: 2;
+    /* This makes the details container take up twice the space of image container */
+    display: flex;
+    flex-direction: column;
 }
 
 .info {

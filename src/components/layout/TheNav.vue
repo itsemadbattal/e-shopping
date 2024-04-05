@@ -16,26 +16,57 @@
                     <iconify-icon icon="tdesign:cart" color="black" width="40" height="40" />
                 </router-link>
             </li>
+            <li>
+                <router-link to="/profile">
+                    <iconify-icon icon="iconamoon:profile" color="black" width="40" height="40" />
+                </router-link>
+            </li>
         </ul>
     </nav>
 </template>
 
-<script>
-
-</script>
-
 <style>
+.navbar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
 .navList {
     display: flex;
-    flex-direction: column;
-    width: 6rem;
-    height: 100%;
-    border: 1px #ccc solid;
-    margin: 2rem 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navList li {
+    margin-bottom: 1rem;
 }
 
 .navList a {
-    margin: 1rem;
-    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.navList a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Media query for desktop screens */
+@media (min-width: 768px) {
+    .navbar {
+        left: 0;
+        padding-top: 10rem;
+        height: 100%;
+        width: 5rem;
+    }
+
+    .navList {
+        flex-direction: column;
+    }
+
 }
 </style>
