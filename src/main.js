@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store/index";
 
 import BaseCard from "./components/UI/BaseCard.vue";
+import SliderCard from "./components/UI/SliderCard.vue";
 import ProductItem from "./components/products/ProductItem.vue";
 import ProductList from "./components/products/ProductList.vue";
 
@@ -15,6 +16,7 @@ app.use(router);
 app.use(store);
 
 app.component("base-card", BaseCard);
+app.component("slider-card", SliderCard);
 app.component("product-item", ProductItem);
 app.component("product-list", ProductList);
 

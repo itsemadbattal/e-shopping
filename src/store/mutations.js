@@ -5,4 +5,7 @@ export default {
   setFetchedProduct(state, data) {
     state.fetchedProduct = data;
   },
+  setFetchedProductsForSlider(state, data) {
+    state.sliderProducts = data;
+  },
 };
