@@ -9,6 +9,7 @@ const store = createStore({
     return {
       loadedProducts: [],
       likedProducts: [],
+      fetchedProduct: {},
     };
   },
   mutations,

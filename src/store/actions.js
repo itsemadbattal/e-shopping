@@ -13,4 +13,20 @@ export default {
       console.error(error);
     }
   },
+
+  async fetchSingleProduct(context, id) {
+    console.log(id);
+    try {
+      const res = await axios.get("https://fakestoreapi.com/products/" + id);
+      if (res.status !== 200) {
+        throw Error("Could not fetch product details");
+      }
+      const data = await res.data;
+      console.log(data);
+      // context.commit("setFetchedProduct", data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };

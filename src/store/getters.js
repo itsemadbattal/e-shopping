@@ -5,4 +5,7 @@ export default {
   likedProducts(state) {
     return state.likedProducts;
   },
+  fetchedProduct(state) {
+    return state.fetchedProduct;
+  },
 };

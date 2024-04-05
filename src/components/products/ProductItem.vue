@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li @click="navigateToProduct">
         <img :src="image" alt="product image" />
         <p>{{ title }}</p>
         <div class="info">
@@ -15,7 +15,13 @@
 
 <script>
 export default {
-    props: ["id", "title", "price", "description", "image"]
+    props: ["id", "title", "price", "description", "image"],
+
+    methods: {
+        navigateToProduct() {
+            this.$router.push("/products/" + this.id)
+        }
+    }
 }
 </script>
 

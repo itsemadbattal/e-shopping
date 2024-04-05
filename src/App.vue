@@ -1,5 +1,5 @@
 <template>
-  <!-- <TheNav /> -->
+  <TheNav />
   <main>
     <router-view></router-view>
   </main>
@@ -7,6 +7,8 @@
 
 
 <script>
+
+
 import TheNav from './components/layout/TheNav.vue'
 export default {
   components: {
@@ -20,6 +22,7 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
 li {
