@@ -8,4 +8,14 @@ export default {
   setFetchedProductsForSlider(state, data) {
     state.sliderProducts = data;
   },
+  setCart(state, data) {
+    state.cart = data;
+  },
+  setCartVisibility(state) {
+    state.isCartOpen = !state.isCartOpen;
+  },
+  setLikedProducts(state, data) {
+    state.likedProducts.push(data);
+    // state.likedProducts = data;
+  },
 };

@@ -11,10 +11,15 @@
                     <iconify-icon icon="ph:heart" color="black" width="40" height="40" />
                 </router-link>
             </li>
-            <li>
+            <!-- <li>
                 <router-link to="/cart">
                     <iconify-icon icon="tdesign:cart" color="black" width="40" height="40" />
                 </router-link>
+            </li> -->
+            <li>
+                <button @click="openCart">
+                    <iconify-icon icon="tdesign:cart" color="black" width="40" height="40" />
+                </button>
             </li>
             <li>
                 <router-link to="/profile">
@@ -24,6 +29,17 @@
         </ul>
     </nav>
 </template>
+
+<script>
+export default {
+    methods: {
+        openCart() {
+            console.log("test");
+            this.$store.commit("setCartVisibility")
+        }
+    }
+}
+</script>
 
 <style>
 .navbar {
@@ -45,13 +61,18 @@
     margin-bottom: 1rem;
 }
 
-.navList a {
+.navList a,
+.navList button {
     display: block;
     padding: 1rem;
     transition: background-color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.navList a:hover {
+.navList a:hover,
+.navList button:hover {
     background-color: #f0f0f0;
 }
 

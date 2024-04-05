@@ -1,11 +1,15 @@
 <template>
 
-    <li class="product" @click="navigateToProduct">
-        <img :src="image" alt="product image" />
-        <p class="product-title">{{ title.length < 50 ? title : title.slice(0, 50) + "..." }}</p>
+    <li class="product" @click="addProductToFav">
+        <div class="header">
+            <img :src="product.image" alt="product image" />
+            <iconify-icon icon="ph:heart" color="black" width="40" height="40" />
+        </div>
+        <p class="product-title">{{ product.title.length < 50 ? product.title : product.title.slice(0, 50) + "..."
+                }}</p>
                 <div class="info">
                     <strong>
-                        <p class="price">{{ price }}IQD</p>
+                        <p class="price">{{ product.price }}IQD</p>
                     </strong>
                     <strong>
                         <p>Size: S M L</p>
@@ -14,27 +18,35 @@
     </li>
 
     <div class="rating">
-        <p>{{ rating.rate }} ({{ rating.count }}) <span style="color:#FBDE9E;">&starf;</span>
+        <p>{{ product.rating.rate }} ({{ product.rating.count }}) <span style="color:#FBDE9E;">&starf;</span>
         </p>
     </div>
-    <div class="action">
-        <iconify-icon class="action-button" icon="ic:twotone-plus" scolor="black" width="25" height="25" />
-    </div>
+
 </template>
 
 <script>
 export default {
-    props: ["id", "title", "price", "description", "image", "rating"],
+    props: ["product"],
 
     methods: {
         navigateToProduct() {
-            this.$router.push("/products/" + this.id)
+            this.$router.push("/products/" + this.id);
+        },
+        addProductToFav() {
+            this.$store.dispatch("addToLikedProducts", this.product);
+            console.log(this.$store.getters.likedProducts);
         }
     }
+
+
 }
 </script>
 
 <style scoped>
+.header {
+    display: flex;
+}
+
 .product {
     cursor: pointer;
 }

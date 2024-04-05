@@ -11,4 +11,10 @@ export default {
   fetchedProduct(state) {
     return state.fetchedProduct;
   },
+  fetchedCart(state) {
+    return state.cart;
+  },
+  cartVisibility(state) {
+    return state.isCartOpen;
+  },
 };

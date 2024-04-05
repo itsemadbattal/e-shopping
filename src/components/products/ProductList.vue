@@ -1,8 +1,7 @@
 <template>
     <ul class="productList">
         <base-card v-for="product in products">
-            <product-item :key="product.id" :id="product.id" :title="product.title" :price="product.price"
-                :description="product.description" :image="product.image" :rating="product.rating" />
+            <product-item :product="product" />
         </base-card>
     </ul>
 </template>

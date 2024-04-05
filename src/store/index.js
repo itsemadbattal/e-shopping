@@ -11,6 +11,8 @@ const store = createStore({
       sliderProducts: [],
       likedProducts: [],
       fetchedProduct: {},
+      cart: [],
+      isCartOpen: false,
     };
   },
   mutations,
