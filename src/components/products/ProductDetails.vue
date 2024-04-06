@@ -1,10 +1,11 @@
 <template>
-    <li class="product" @click="navigateToProduct">
+    <li class="product">
         <div class="image-container">
             <img :src="product.image" alt="product image" />
         </div>
         <div class="details">
             <p>{{ product.title }}</p>
+            <p>{{ product.description }}</p>
             <div class="info">
                 <strong>
                     <p class="price">{{ product.price }}IQD</p>
@@ -19,6 +20,7 @@
 
 
 <script>
+import axios from "axios";
 export default {
     data() {
         return {
@@ -27,9 +29,26 @@ export default {
         }
     },
     async created() {
-        const product = await this.$store.dispatch("fetchSingleProduct", this.productId)
-        this.product = product;
+        const productData = await this.fetchSingleProduct(this.productId)
+        this.product = productData
     },
+
+    methods: {
+        async fetchSingleProduct(id) {
+            try {
+                const res = await axios.get("https://fakestoreapi.com/products/" + id);
+                if (res.status !== 200) {
+                    throw Error("Could not fetch product details");
+                }
+                // console.log(res);
+                const data = await res.data;
+                // console.log("product", data);
+                return data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
+    }
 
 
 }

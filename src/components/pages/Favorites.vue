@@ -1,8 +1,10 @@
 <template>
 
-    <div v-for="fav in favs" :key="fav.id">
-        <p>{{ fav.title }}</p>
-    </div>
+    <ul class="productList">
+        <base-card v-for="fav in favs" :key="fav.id">
+            <product-item :product="fav">{{ fav.title }}</product-item>
+        </base-card>
+    </ul>
 
 </template>
 
@@ -15,3 +17,14 @@ export default {
     }
 }
 </script>
+
+<style>
+.productList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 5rem;
+    animation: slideFromButtom 0.3s ease-in;
+}
+</style>

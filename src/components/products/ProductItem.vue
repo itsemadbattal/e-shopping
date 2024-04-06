@@ -1,10 +1,6 @@
 <template>
-
-    <li class="product" @click="addProductToFav">
-        <div class="header">
-            <img :src="product.image" alt="product image" />
-            <iconify-icon icon="ph:heart" color="black" width="40" height="40" />
-        </div>
+    <li class="product" @click="navigateToProduct">
+        <img :src="product.image" alt="product image" />
         <p class="product-title">{{ product.title.length < 50 ? product.title : product.title.slice(0, 50) + "..."
                 }}</p>
                 <div class="info">
@@ -15,11 +11,15 @@
                         <p>Size: S M L</p>
                     </strong>
                 </div>
+                <div class="rating">
+                    <p>{{ product.rating.rate }} ({{ product.rating.count }}) <span
+                            style="color:#FBDE9E;">&starf;</span>
+                    </p>
+                </div>
     </li>
 
-    <div class="rating">
-        <p>{{ product.rating.rate }} ({{ product.rating.count }}) <span style="color:#FBDE9E;">&starf;</span>
-        </p>
+    <div class="heart-container" @click="addProductToFav">
+        <iconify-icon class="heart-icon" icon="ph:heart" color="black" width="30" height="30" />
     </div>
 
 </template>
@@ -30,32 +30,37 @@ export default {
 
     methods: {
         navigateToProduct() {
-            this.$router.push("/products/" + this.id);
+            this.$router.push("/products/" + this.product.id);
         },
-        addProductToFav() {
+        addProductToFav(event) {
+            //stopping the event propogation so it doesnt clash with navigating to product details
+            event.stopPropagation();
+
             this.$store.dispatch("addToLikedProducts", this.product);
-            console.log(this.$store.getters.likedProducts);
         }
     }
-
-
 }
 </script>
 
 <style scoped>
-.header {
-    display: flex;
-}
-
 .product {
     cursor: pointer;
 }
+
+
+.heart-container {
+    cursor: pointer;
+    width: 1rem;
+    float: right;
+    margin: 0 1rem;
+}
+
 
 .product img {
     width: 100%;
     height: 8rem;
     object-fit: contain;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); */
 }
 

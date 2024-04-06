@@ -27,22 +27,6 @@ export default {
     }
   },
 
-  async fetchSingleProduct(id) {
-    // console.log(id);
-    try {
-      const res = await axios.get("https://fakestoreapi.com/products/" + id);
-      if (res.status !== 200) {
-        throw Error("Could not fetch product details");
-      }
-      const data = await res.data;
-      // console.log(data);
-      // context.commit("setFetchedProduct", data);
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
-  },
-
   async fetchCart(context) {
     try {
       const res = await axios.get("https://fakestoreapi.com/carts/4");
@@ -57,6 +41,14 @@ export default {
   },
 
   async addToLikedProducts(context, product) {
-    context.commit("setLikedProducts", product);
+    const productExist = context.state.likedProducts.find(
+      (prod) => prod.id === product.id
+    );
+    if (productExist) {
+      // console.log("exists");
+    } else {
+      // console.log("doesnt exist");
+      context.commit("setLikedProducts", product);
+    }
   },
 };
