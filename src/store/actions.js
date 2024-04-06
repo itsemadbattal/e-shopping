@@ -1,16 +1,30 @@
 import axios from "axios";
 
-import fetchSingleProduct from "../util/fetchCart";
+import fetchSingleProduct from "../util/fetchSingleProduct";
 
 export default {
-  async fetchProducts(context) {
+  async fetchProducts(context, cat) {
     try {
-      const res = await axios.get("https://fakestoreapi.com/products");
-      if (res.status !== 200) {
-        throw Error("Could not fetch products");
+      //if cat is not provided
+      if (cat.length === 0) {
+        const res = await axios.get("https://fakestoreapi.com/products");
+        if (res.status !== 200) {
+          throw Error("Could not fetch products");
+        }
+        const data = await res.data;
+        context.commit("setProducts", data);
       }
-      const data = await res.data;
-      context.commit("setProducts", data);
+      //if cat is not provided
+      else {
+        const res = await axios.get(
+          "https://fakestoreapi.com/products/category/" + cat
+        );
+        if (res.status !== 200) {
+          throw Error("Could not fetch products");
+        }
+        const data = await res.data;
+        context.commit("setProducts", data);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -20,10 +34,25 @@ export default {
     try {
       const res = await axios.get("https://fakestoreapi.com/products?limit=5");
       if (res.status !== 200) {
-        throw Error("Could not fetch products");
+        throw Error("Could not fetch products for slider");
       }
       const data = await res.data;
       context.commit("setFetchedProductsForSlider", data);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  async fetchCategories(context) {
+    try {
+      const res = await axios.get(
+        "https://fakestoreapi.com/products/categories"
+      );
+      if (res.status !== 200) {
+        throw Error("Could not fetch categories");
+      }
+      const data = await res.data;
+      context.commit("setCategories", data);
     } catch (error) {
       console.error(error);
     }
@@ -33,7 +62,7 @@ export default {
     try {
       const res = await axios.get("https://fakestoreapi.com/carts/1");
       if (res.status !== 200) {
-        throw Error("Could not fetch products");
+        throw Error("Could not fetch cart");
       }
       const data = await res.data;
 

@@ -5,6 +5,9 @@ export default {
   fetchedProductsForSlider(state) {
     return state.sliderProducts;
   },
+  fetchedCategories(state) {
+    return state.categories;
+  },
   likedProducts(state) {
     return state.likedProducts;
   },

@@ -26,7 +26,6 @@ export default {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-left: 5rem;
     animation: slideFromLeft 0.3s ease-in;
 }
 
@@ -42,10 +41,6 @@ export default {
 @media (max-width: 766px) {
     .noData p {
         font-size: 16px;
-    }
-
-    .productList {
-        margin-left: 0;
     }
 }
 

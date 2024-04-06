@@ -23,23 +23,11 @@ export default {
 <style scoped>
 .product-wrapper {
     display: flex;
-    /* justify-content: space-between; */
     gap: 2rem;
     overflow-x: auto;
-
-    margin-left: 5rem;
 }
 
 .product {
     width: 90rem;
-    /* Change the width as desired */
-    /* Additional styling for product card */
-}
-
-@media (max-width: 766px) {
-    .product-wrapper {
-        margin-left: 0;
-    }
-
 }
 </style>

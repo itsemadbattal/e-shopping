@@ -8,6 +8,9 @@ export default {
   setFetchedProductsForSlider(state, data) {
     state.sliderProducts = data;
   },
+  setCategories(state, data) {
+    state.categories = data;
+  },
   setCart(state, data) {
     console.log(data);
     state.cart = data;

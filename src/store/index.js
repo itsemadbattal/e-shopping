@@ -9,6 +9,7 @@ const store = createStore({
     return {
       loadedProducts: [],
       sliderProducts: [],
+      categories: [],
       likedProducts: [],
       fetchedProduct: {},
       cart: { products: [], total: 0 },
