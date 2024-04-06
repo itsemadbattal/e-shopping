@@ -102,7 +102,5 @@ export default {
     .rating p {
         font-size: 12px;
     }
-
-
 }
 </style>

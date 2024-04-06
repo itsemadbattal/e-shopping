@@ -4,17 +4,19 @@
             <img :src="product.image" alt="product image" />
         </div>
         <div class="details">
-            <p>{{ product.title }}</p>
+            <h1>{{ product.title }}</h1>
             <p>{{ product.description }}</p>
             <div class="info">
                 <strong>
-                    <p class="price">{{ product.price }}IQD</p>
+                    <p>{{ product.price }} IQD</p>
                 </strong>
-                <strong>
-                    <p>Size: S M L</p>
-                </strong>
+                <p>Size: S M L</p>
+            </div>
+            <div class="action">
+                <button>ADD TO CART</button>
             </div>
         </div>
+
     </li>
 </template>
 
@@ -49,36 +51,87 @@ export default {
             }
         },
     }
-
-
 }
 
 </script>
 
 <style scoped>
 .product {
-    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-left: 5rem;
+}
+
+.product h1,
+.product p {
+    margin-bottom: 1rem;
 }
 
 .image-container {
-    flex: 1;
-    margin-right: 1rem;
+    max-width: 60rem;
+    max-height: 60rem;
+    margin-bottom: 1rem;
 }
 
 .image-container img {
-    width: 20%;
-    height: 20%;
-    object-fit: contain
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    margin: 0 auto;
 }
 
 .details {
-    flex: 2;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 70rem;
 }
 
 .info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.action button {
+    padding: 1rem 5rem;
+    border: 2px rgb(84, 238, 171) solid;
+    background-color: rgb(84, 238, 171);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+}
+
+.action button:hover {
+    background-color: rgb(77, 208, 151);
+    border-color: rgb(77, 208, 151);
+}
+
+@media (max-width: 766px) {
+    .product {
+        margin: 0 auto;
+        flex-direction: column;
+    }
+
+    .details {
+        width: auto;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product h1 {
+        font-size: 24px;
+    }
+
+
 }
 </style>

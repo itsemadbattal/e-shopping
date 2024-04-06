@@ -132,7 +132,6 @@ export default {
 .actions .close {
     background: none;
     border: 1px black solid;
-
 }
 
 .actions .submit {
