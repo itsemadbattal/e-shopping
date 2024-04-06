@@ -88,6 +88,5 @@ export default {
     .navList {
         flex-direction: column;
     }
-
 }
 </style>

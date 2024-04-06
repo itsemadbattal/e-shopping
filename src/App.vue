@@ -1,5 +1,5 @@
 <template>
-  <TheNav />
+  <Sidebar />
   <cart-dialog v-if="cartVisible" />
   <main>
     <router-view></router-view>
@@ -8,12 +8,12 @@
 
 
 <script>
-import TheNav from './components/layout/TheNav.vue'
+import Sidebar from './components/layout/Sidebar.vue'
 import CartDialog from './components/cart/CartDialog.vue'
 
 export default {
   components: {
-    TheNav,
+    Sidebar,
     CartDialog
   },
   computed: {

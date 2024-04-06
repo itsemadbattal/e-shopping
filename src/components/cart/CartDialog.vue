@@ -147,6 +147,12 @@ export default {
     border-color: rgb(77, 208, 151);
 }
 
+@media (max-width: 768px) {
+    .actions button {
+        padding: 10px 12px;
+    }
+}
+
 @keyframes slideFromLeft {
     from {
         /* opacity: 0; */

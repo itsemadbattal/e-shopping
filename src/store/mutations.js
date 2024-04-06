@@ -16,6 +16,6 @@ export default {
     state.isCartOpen = !state.isCartOpen;
   },
   setLikedProducts(state, data) {
-    state.likedProducts.push(data);
+    state.likedProducts = data;
   },
 };

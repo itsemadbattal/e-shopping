@@ -60,14 +60,19 @@ export default {
   },
 
   async addToLikedProducts(context, product) {
+    const oldArray = context.state.likedProducts;
     const productExist = context.state.likedProducts.find(
       (prod) => prod.id === product.id
     );
+    let newArray;
     if (productExist) {
       // console.log("exists");
+      newArray = oldArray.filter((prod) => prod.id !== productExist.id);
+      context.commit("setLikedProducts", newArray);
     } else {
+      newArray = [...oldArray, product];
       // console.log("doesnt exist");
-      context.commit("setLikedProducts", product);
+      context.commit("setLikedProducts", newArray);
     }
   },
 };
