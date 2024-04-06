@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .productList {
     display: flex;
     justify-content: center;
@@ -34,7 +34,6 @@ export default {
     .productList {
         margin-left: 0;
     }
-
 }
 
 

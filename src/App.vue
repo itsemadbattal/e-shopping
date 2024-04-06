@@ -1,5 +1,6 @@
 <template>
   <TheNav />
+  <cart-dialog v-if="cartVisible" />
   <main>
     <router-view></router-view>
   </main>
@@ -7,13 +8,20 @@
 
 
 <script>
-
-
 import TheNav from './components/layout/TheNav.vue'
+import CartDialog from './components/cart/CartDialog.vue'
+
 export default {
   components: {
-    TheNav
+    TheNav,
+    CartDialog
+  },
+  computed: {
+    cartVisible() {
+      return this.$store.getters.cartVisibility;
+    }
   }
+
 }
 </script>
 
@@ -22,7 +30,6 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 
 li {

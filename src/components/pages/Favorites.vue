@@ -1,11 +1,13 @@
 <template>
 
-    <ul class="productList">
+    <ul v-if="favs.length !== 0" class="productList">
         <base-card v-for="fav in favs" :key="fav.id">
             <product-item :product="fav">{{ fav.title }}</product-item>
         </base-card>
     </ul>
-
+    <div v-else class="noData">
+        <p>You have not added favorites products yet</p>
+    </div>
 </template>
 
 <script>
@@ -13,7 +15,7 @@ export default {
     computed: {
         favs() {
             return this.$store.getters.likedProducts
-        }
+        },
     }
 }
 </script>
@@ -26,5 +28,33 @@ export default {
     flex-wrap: wrap;
     margin-left: 5rem;
     animation: slideFromButtom 0.3s ease-in;
+}
+
+.noData {
+    margin: 4rem;
+    text-align: center;
+}
+
+.noData p {
+    font-size: 2rem;
+}
+
+@media (max-width: 766px) {
+    .noData p {
+        font-size: 16px;
+    }
+}
+
+
+@keyframes slideFromButtom {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 </style>
