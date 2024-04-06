@@ -27,7 +27,7 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     margin-left: 5rem;
-    animation: slideFromButtom 0.3s ease-in;
+    animation: slideFromLeft 0.3s ease-in;
 }
 
 .noData {
@@ -43,13 +43,17 @@ export default {
     .noData p {
         font-size: 16px;
     }
+
+    .productList {
+        margin-left: 0;
+    }
 }
 
 
-@keyframes slideFromButtom {
+@keyframes slideFromLeft {
     from {
         opacity: 0;
-        transform: translateY(60px);
+        transform: translateX(-60px);
     }
 
     to {

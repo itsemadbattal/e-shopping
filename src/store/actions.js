@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import fetchSingleProduct from "../util/fetchCart";
+
 export default {
   async fetchProducts(context) {
     try {
@@ -29,12 +31,29 @@ export default {
 
   async fetchCart(context) {
     try {
-      const res = await axios.get("https://fakestoreapi.com/carts/4");
+      const res = await axios.get("https://fakestoreapi.com/carts/1");
       if (res.status !== 200) {
         throw Error("Could not fetch products");
       }
       const data = await res.data;
-      context.commit("setProducts", data);
+
+      let cartArray = [];
+      let total = 0;
+      for (const productItem of data.products) {
+        const productId = productItem.productId;
+        const quantity = productItem.quantity;
+        // Fetch product details using productId
+        const product = await fetchSingleProduct(productId);
+        total += product.price * quantity;
+
+        // Add product details and quantity to the cartArray
+        cartArray.push({ ...product, quantity });
+      }
+      const finalCartArray = { products: cartArray, total: total };
+
+      console.log(finalCartArray);
+
+      context.commit("setCart", finalCartArray);
     } catch (error) {
       console.error(error);
     }

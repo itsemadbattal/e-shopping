@@ -52,19 +52,17 @@ export default {
 
 
 }
+
 </script>
 
 <style scoped>
 .product {
-
     margin-bottom: 2rem;
 }
 
 .image-container {
     flex: 1;
-    /* This makes the image container take up remaining space */
     margin-right: 1rem;
-    /* Add some spacing between image and details */
 }
 
 .image-container img {
@@ -75,7 +73,6 @@ export default {
 
 .details {
     flex: 2;
-    /* This makes the details container take up twice the space of image container */
     display: flex;
     flex-direction: column;
 }

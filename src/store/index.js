@@ -11,7 +11,7 @@ const store = createStore({
       sliderProducts: [],
       likedProducts: [],
       fetchedProduct: {},
-      cart: [],
+      cart: { products: [], total: 0 },
       isCartOpen: false,
     };
   },

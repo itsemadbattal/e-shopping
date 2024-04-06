@@ -9,6 +9,7 @@ export default {
     state.sliderProducts = data;
   },
   setCart(state, data) {
+    console.log(data);
     state.cart = data;
   },
   setCartVisibility(state) {
@@ -16,6 +17,5 @@ export default {
   },
   setLikedProducts(state, data) {
     state.likedProducts.push(data);
-    // state.likedProducts = data;
   },
 };

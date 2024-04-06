@@ -2,26 +2,32 @@
     <teleport to="#app">
         <dialog open class="cart-dialog">
             <div class="header">
-                <h1>Cart</h1>
+                <h1>My Cart</h1>
                 <iconify-icon icon="material-symbols:close" class="close-icon" color="black" width="30" height="30"
                     @click="closeCart" />
             </div>
             <!-- list of products -->
-            <ul>
-                <li>
+            <ul v-if="fetchedCart?.products?.length !== 0" class="proudct-list">
+                <li v-for="product in fetchedCart.products" :key="product.id">
                     <div class="info">
-                        <h3>product title</h3>
-                        <p>product price</p>
+                        <img :src="product.image" />
+                        <h3>{{ product.title.slice(0, 15) }}...</h3>
                     </div>
+                    <div class="price">
+                        <p>{{ product.price }} * {{ product.quantity }} = {{ product.price * product.quantity }} IQD
+                        </p>
+                    </div>
+
+
                 </li>
             </ul>
-
-            <div class="total">
-                <h3>Subtotal: </h3>
-                <h3>Discount: </h3>
-                <h3>Shipping Fee: </h3>
-                <h2>Total: </h2>
+            <p v-else>Nothing in cart yet :(</p>
+            <div class="subtotal">
+                <h2>Subtotal: {{ fetchedCart.total }} IQD</h2>
+                <h3>Discount: N/A </h3>
+                <h3>Shipping Fee: N/A</h3>
             </div>
+            <h2 class="total">Total: {{ fetchedCart.total }} IQD</h2>
             <div class="actions">
                 <button type="button" class="close" @click="closeCart">Close</button>
                 <button type="submit" class="submit">Proceed to Checkout</button>
@@ -32,14 +38,22 @@
 
 <script>
 export default {
-    props: ["closeCart"],
-
     methods: {
         closeCart() {
             this.$store.commit("setCartVisibility");
         }
     },
+    computed: {
+        fetchedCart() {
+            return this.$store.getters.fetchedCart;
+        }
+    },
+    mounted() {
+        this.$store.dispatch("fetchCart");
+        console.log(this.fetchedCart);
+    }
 }
+
 </script>
 
 
@@ -56,17 +70,49 @@ export default {
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    animation: slideFromLeft 0.3s ease-out
+    animation: slideFromLeft 0.3s ease-out;
+    font-size: 14px
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem
 }
 
 .header .close-icon {
     cursor: pointer;
+}
+
+.proudct-list {
+    margin-bottom: 3rem;
+}
+
+.info img {
+    width: 20%;
+    height: 20%;
+    object-fit: contain;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtotal {
+    margin: 1rem 0;
+}
+
+.total {
+    margin-bottom: 1rem;
 }
 
 .actions {
@@ -80,6 +126,7 @@ export default {
 .actions button {
     padding: 1rem;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .actions .close {
@@ -90,7 +137,6 @@ export default {
 
 .actions .submit {
     border: 2px rgb(84, 238, 171) solid;
-    border-radius: 10px;
     background-color: rgb(84, 238, 171);
     color: white;
     transition: background-color 0.3s ease-out;
