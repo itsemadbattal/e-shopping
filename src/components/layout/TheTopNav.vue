@@ -23,14 +23,15 @@
                     <iconify-icon icon="oui:globe" color="black" width="40" height="40" />
                 </div>
 
-                <li>
+                <li class="cart">
                     <button @click="openCart">
                         <iconify-icon icon="tdesign:cart" color="black" width="40" height="40" />
                     </button>
                 </li>
-                <li>
+                <li class="profile">
                     <iconify-icon icon="iconamoon:profile-circle-fill" color="black" width="40" height="40" />
                 </li>
+
 
             </div>
         </ul>
@@ -103,7 +104,10 @@ export default {
 }
 
 @media (max-width: 768px) {
-    .navbar {
+
+    .support,
+    .profile,
+    .cart {
         display: none;
     }
 }
