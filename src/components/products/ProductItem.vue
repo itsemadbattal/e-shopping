@@ -19,14 +19,15 @@
     </li>
 
     <div class="heart-container" @click="addProductToFav">
-        <iconify-icon class="heart-icon" icon="ph:heart" color="black" width="30" height="30" />
+        <iconify-icon class="heart-icon" :icon="isFav ? 'ph:heart-fill' : 'ph:heart'" color="red" width="30"
+            height="30" />
     </div>
 
 </template>
 
 <script>
 export default {
-    props: ["product"],
+    props: ["product", "isFav"],
 
     methods: {
         navigateToProduct() {

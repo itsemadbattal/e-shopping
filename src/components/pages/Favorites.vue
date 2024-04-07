@@ -2,7 +2,7 @@
 
     <ul v-if="favs.length !== 0" class="productList">
         <base-card v-for="fav in favs" :key="fav.id">
-            <product-item :product="fav"></product-item>
+            <product-item :product="fav" isFav="true"></product-item>
         </base-card>
     </ul>
     <div v-else class="noData">
