@@ -28,9 +28,15 @@ npm run dev
 npm run build
 ```
 
-### API Used:
+### API Used
 
 The API used for this project is `https://fakestoreapi.com`
+
+### Website Live URL
+
+### API Used
+
+`https://e-shopping-eosin.vercel.app`
 
 ### Routes
 
@@ -70,10 +76,12 @@ The API used for this project is `https://fakestoreapi.com`
    1. Users can unmark products in this page in which they will be removed from the page.
 
 1. User Cart Page:
+
    1. Initially, when this page is loaded, the client fetched a pre defind cart from the mentioned API.
    1. The fetched is already populated with some data including product IDs, quantity and data.
    1. The client then fetches the corrosponding data to display each product along side its details in the user cart page.
-   1. Users can increase/decrease the quantity of the producats in cart.
-   1. Users can add new products to the cart which will save the new cart in the store only due to limitations of the API where users cannot store their data in the API's database as mentioned in their offical documentations.
+   1. Users can increase/decrease the quantity of the products in cart which will fire up an action to update the cart stored in Vuex store.
+   1. Users can add new products to the cart which will save the new cart in the store only due to limitations of the API where users cannot store their data in the API's database as mentioned in their offical documentations `https://fakestoreapi.com`.
+   1. Additional data is present on this page. For example, product image, product price, product quantity, product total price in cart (product price \* product quantity), sub-total, discounts, shipping fees, and total price of the cart.
 
 NOTES: TALK ABOUT CART LIMITATIONS
