@@ -57,7 +57,7 @@ The API used for this project is `https://fakestoreapi.com`
    1. Users can add products to liked products page by clicking on the heart icon.
    1. Users can scroll through the slider at the top of the page to view some static products.
    1. Users can sort products asc or desc.
-   1. Users can click on products to navigate to the corrosponding product details page.
+   1. Users can click on products which will trigger a navigation to the corrosponding product details page.
 
 1. Product Details Page:
 
@@ -65,7 +65,15 @@ The API used for this project is `https://fakestoreapi.com`
    1. Users can add product to liked products.
 
 1. Favorite Products Page:
+
    1. This page is in charge of displaying list of products that the user makred as favorite.
    1. Users can unmark products in this page in which they will be removed from the page.
+
+1. User Cart Page:
+   1. Initially, when this page is loaded, the client fetched a pre defind cart from the mentioned API.
+   1. The fetched is already populated with some data including product IDs, quantity and data.
+   1. The client then fetches the corrosponding data to display each product along side its details in the user cart page.
+   1. Users can increase/decrease the quantity of the producats in cart.
+   1. Users can add new products to the cart which will save the new cart in the store only due to limitations of the API where users cannot store their data in the API's database as mentioned in their offical documentations.
 
 NOTES: TALK ABOUT CART LIMITATIONS
