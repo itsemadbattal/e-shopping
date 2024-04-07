@@ -77,11 +77,25 @@ The API used for this project is `https://fakestoreapi.com`
 
 1. User Cart Page:
 
-   1. Initially, when this page is loaded, the client fetched a pre defind cart from the mentioned API.
-   1. The fetched is already populated with some data including product IDs, quantity and data.
-   1. The client then fetches the corrosponding data to display each product along side its details in the user cart page.
+   1. Initially, when this page is loaded, the client created a cart on the fly.
+   1. The cart contains an empty array of products and a total set to zero.
+   1. Users can add new products to the cart which will save the new cart to the store only due to limitations of the API where users cannot store their data in the API's database as mentioned in their offical documentations `https://fakestoreapi.com`.
    1. Users can increase/decrease the quantity of the products in cart which will fire up an action to update the cart stored in Vuex store.
-   1. Users can add new products to the cart which will save the new cart in the store only due to limitations of the API where users cannot store their data in the API's database as mentioned in their offical documentations `https://fakestoreapi.com`.
    1. Additional data is present on this page. For example, product image, product price, product quantity, product total price in cart (product price \* product quantity), sub-total, discounts, shipping fees, and total price of the cart.
 
-NOTES: TALK ABOUT CART LIMITATIONS
+## Folders Structure
+
+1. Navigating through the prject structure will show seperation of concerns when it comes to reusing code and clean code.
+1. Inside the components folder in the src folder, six main folders can be found:
+   1. Pages folder, this folder is mainly to connect the routes to a single file. Essentially, this page is a collection of other components.
+   1. Products folder, this folder contains products related logic. For example, products item, which is a reusable component whenever product item is needed which will help with minimizing code duplications.
+   1. Layout folder, this folder is concerned with some fixed UI components. For instance, Filters component which is being used to wrap the search bar and the category filtering into one reusable component.
+   1. UI folder. this folder is the place where reusable UI elements are stored. For example, BaseCard which is used to provide card-looking products.
+1. In the src folder, store folder can be found:
+
+   1. This is where all Vuex store is kept.
+   1. index which is the main file of the store where state is defined along side importing mutations, actions, and getters.
+   1. actions, getters, and mutations files. Each of these files corrospond to a different aspect of the Vuex store logic.
+
+1. Router folder:
+   1. this folder has an index file which houses all the logic related to routes and their components.

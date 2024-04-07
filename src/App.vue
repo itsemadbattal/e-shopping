@@ -24,8 +24,7 @@ export default {
     cartVisible() {
       return this.$store.getters.cartVisibility;
     }
-  },
-
+  }
 }
 
 

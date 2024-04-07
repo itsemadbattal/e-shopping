@@ -81,6 +81,8 @@ export default {
     }
   },
 
+  //this function is not in use as there is no need to fetch a pre populated cart
+  //we create one on the fly and store it in vuex store
   async fetchCart(context) {
     try {
       const res = await axios.get("https://fakestoreapi.com/carts/1");
@@ -103,7 +105,7 @@ export default {
       }
       const finalCartArray = { products: cartArray, total: total };
 
-      console.log(finalCartArray);
+      // console.log(finalCartArray);
 
       context.commit("setCart", finalCartArray);
     } catch (error) {

@@ -33,7 +33,6 @@
 export default {
     methods: {
         openCart() {
-            console.log("test");
             this.$store.dispatch("setCartVisible", true)
         }
     }

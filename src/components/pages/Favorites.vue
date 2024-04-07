@@ -6,7 +6,7 @@
         </base-card>
     </ul>
     <div v-else class="noData">
-        <p>You have not added favorites products yet</p>
+        <p>You have not added favorite products yet :(</p>
     </div>
 </template>
 

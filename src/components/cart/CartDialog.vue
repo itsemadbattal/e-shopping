@@ -9,8 +9,8 @@
                 </button>
             </div>
             <!-- list of products -->
-            <ul v-if="fetchedCart?.products?.length !== 0" class="proudct-list">
-                <li v-for="product in fetchedCart.products" :key="product.id">
+            <ul v-if="cart?.products?.length !== 0" class="proudct-list">
+                <li v-for="product in cart.products" :key="product.id">
                     <div class="info">
                         <img :src="product.image" />
                         <h3>{{ product?.title?.slice(0, 15) }}...</h3>
@@ -33,11 +33,11 @@
 
             <p v-else>Nothing in cart yet :(</p>
             <div class="subtotal">
-                <h2>Subtotal: {{ fetchedCart.total.toFixed(2) }} IQD</h2>
+                <h2>Subtotal: {{ cart.total.toFixed(2) }} IQD</h2>
                 <h3>Discount: N/A </h3>
                 <h3>Shipping Fee: N/A</h3>
             </div>
-            <h2 class="total">Total: {{ fetchedCart.total.toFixed(2) }} IQD</h2>
+            <h2 class="total">Total: {{ cart.total.toFixed(2) }} IQD</h2>
             <div class="actions">
                 <button type="button" class="close" @click="closeCart">Close</button>
                 <button type="submit" class="submit">Proceed to Checkout</button>
@@ -49,13 +49,8 @@
 <script>
 
 export default {
-    data() {
-        return {
-            cartOpen: this.$store.getters.fetchedCart
-        }
-    },
     computed: {
-        fetchedCart() {
+        cart() {
             return this.$store.getters.fetchedCart;
         },
         isCartOpen() {
@@ -73,9 +68,6 @@ export default {
             this.$store.dispatch("setCartVisible", false)
         }
     },
-    mounted() {
-        this.$store.dispatch("fetchCart");
-    }
 }
 
 </script>
@@ -94,7 +86,7 @@ export default {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     animation: slideFromLeft 0.3s ease-out;
-    font-size: 14px
+    font-size: 18px
 }
 
 .header {

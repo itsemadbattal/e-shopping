@@ -13,11 +13,7 @@
 <script>
 
 export default {
-    data() {
-        return {
-            categories: []
-        }
-    },
+
     computed: {
         categories() {
             return this.$store.getters.fetchedCategories
@@ -48,7 +44,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: slideFromButtom 0.3s ease-in;
+    animation: slideFromLeft 0.3s ease-in;
 }
 
 .categoryList li {
@@ -84,15 +80,15 @@ export default {
     }
 }
 
-@keyframes slideFromButtom {
+@keyframes slideFromLeft {
     from {
         opacity: 0;
-        transform: translateY(60px);
+        transform: translateX(-60px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 </style>
