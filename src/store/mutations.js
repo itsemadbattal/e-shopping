@@ -3,6 +3,16 @@ export default {
     state.loadedProducts = data;
   },
 
+  setSearchedProducts(state, data) {
+    if (data.searchTerm.length === 0) {
+      state.loadedProducts = [...state.loadedProducts];
+    } else {
+      state.loadedProducts = state.loadedProducts.filter((prod) =>
+        prod.title.toLowerCase().includes(data.searchTerm.toLowerCase())
+      );
+    }
+  },
+
   setFetchedProduct(state, data) {
     state.fetchedProduct = data;
   },
@@ -53,7 +63,6 @@ export default {
   },
 
   addProductToCart(state, data) {
-    console.log(state.cart);
     const productIndex = state.cart.products.findIndex(
       (product) => product.id === data.id
     );
@@ -66,12 +75,9 @@ export default {
       state.cart.products.push(newProduct);
       state.cart.total += data.price;
     }
-
-    console.log(state.cart);
   },
 
   setCartVisibility(state, data) {
-    console.log(data);
     state.isCartOpen = data;
   },
 

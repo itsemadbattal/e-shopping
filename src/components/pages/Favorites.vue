@@ -32,6 +32,7 @@ export default {
 .noData {
     margin: 4rem;
     text-align: center;
+    animation: slideFromLeft 0.3s ease-in;
 }
 
 .noData p {

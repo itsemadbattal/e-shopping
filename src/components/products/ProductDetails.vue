@@ -22,6 +22,7 @@
 
 
 <script>
+
 import axios from "axios";
 export default {
     data() {
@@ -66,6 +67,7 @@ export default {
     align-items: center;
     padding: 2rem;
     margin-left: 5rem;
+    animation: slideFromButtom 0.3s ease-out
 }
 
 .product h1,
@@ -139,6 +141,18 @@ export default {
     .action {
         margin: 0 auto;
     }
+}
 
+
+@keyframes slideFromButtom {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>

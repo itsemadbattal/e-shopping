@@ -3,21 +3,23 @@ import axios from "axios";
 import fetchSingleProduct from "../util/fetchSingleProduct";
 
 export default {
-  async fetchProducts(context, cat) {
+  async fetchProducts(context, payload) {
     try {
       //if cat is not provided
-      if (cat.length === 0) {
-        const res = await axios.get("https://fakestoreapi.com/products");
+      if (payload.cat.length === 0) {
+        const res = await axios.get(
+          "https://fakestoreapi.com/products?sort=" + payload.sort
+        );
         if (res.status !== 200) {
           throw Error("Could not fetch products");
         }
         const data = await res.data;
         context.commit("setProducts", data);
       }
-      //if cat is not provided
+      //if cat is provided
       else {
         const res = await axios.get(
-          "https://fakestoreapi.com/products/category/" + cat
+          "https://fakestoreapi.com/products/category/" + payload.cat
         );
         if (res.status !== 200) {
           throw Error("Could not fetch products");
@@ -28,6 +30,10 @@ export default {
     } catch (error) {
       console.error(error);
     }
+  },
+
+  searchProductByName(context, payload) {
+    context.commit("setSearchedProducts", payload);
   },
 
   async fetchProductsForSlider(context) {

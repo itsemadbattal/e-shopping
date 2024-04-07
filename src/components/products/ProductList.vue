@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 export default {
     computed: {
         products() {
@@ -14,7 +15,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch('fetchProducts', "");
+        this.$store.dispatch('fetchProducts', { cat: "", sort: "asc" });
     }
 }
 </script>
@@ -37,7 +38,7 @@ export default {
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 </style>
