@@ -33,7 +33,6 @@ export default {
             this.$router.push("/products/" + this.product.id);
         },
         addProductToFav(event) {
-            //stopping the event propogation so it doesnt clash with navigating to product details
             event.stopPropagation();
 
             this.$store.dispatch("addToLikedProducts", this.product);

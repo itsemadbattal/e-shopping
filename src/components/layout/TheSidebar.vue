@@ -35,7 +35,7 @@ export default {
     methods: {
         openCart() {
             console.log("test");
-            this.$store.commit("setCartVisibility")
+            this.$store.dispatch("setCartVisible", true)
         }
     }
 }

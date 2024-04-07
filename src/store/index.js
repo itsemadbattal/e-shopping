@@ -13,7 +13,7 @@ const store = createStore({
       likedProducts: [],
       fetchedProduct: {},
       cart: { products: [], total: 0 },
-      isCartOpen: false,
+      isCartOpen: null,
     };
   },
   mutations,

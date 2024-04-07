@@ -1,10 +1,12 @@
 <template>
     <teleport to="#app">
-        <dialog open class="cart-dialog">
+        <dialog :open="isCartOpen" class="cart-dialog">
             <div class="header">
                 <h1>My Cart</h1>
-                <iconify-icon icon="material-symbols:close" class="close-icon" color="black" width="30" height="30"
-                    @click="closeCart" />
+                <button @click="closeDialog">
+                    <iconify-icon icon="material-symbols:close" class="close-icon" color="black" width="30"
+                        height="30" />
+                </button>
             </div>
             <!-- list of products -->
             <ul v-if="fetchedCart?.products?.length !== 0" class="proudct-list">
@@ -14,22 +16,30 @@
                         <h3>{{ product.title.slice(0, 15) }}...</h3>
                     </div>
                     <div class="price">
-                        <p>{{ product.price }} * {{ product.quantity }} = {{ product.price * product.quantity }} IQD
+                        <p>{{ product.price.toFixed(2) }} * {{ product.quantity }} = {{ (product.price *
+                            product.quantity).toFixed(2) }} IQD
                         </p>
+                        <!-- <div class="manage-quantity">
+                            <button @click="increaseQty(product.id, product.price)">
+                                <iconify-icon icon="ic:sharp-plus" color="black" width="25" height="25" />
+                            </button>
+                            <button @click="decreaseQty(product.id, product.price)">
+                                <iconify-icon icon="ic:sharp-minus" color="black" width="25" height="25" />
+                            </button>
+                        </div> -->
                     </div>
-
-
                 </li>
             </ul>
+
             <p v-else>Nothing in cart yet :(</p>
             <div class="subtotal">
-                <h2>Subtotal: {{ fetchedCart.total }} IQD</h2>
+                <h2>Subtotal: {{ fetchedCart.total.toFixed(2) }} IQD</h2>
                 <h3>Discount: N/A </h3>
                 <h3>Shipping Fee: N/A</h3>
             </div>
-            <h2 class="total">Total: {{ fetchedCart.total }} IQD</h2>
+            <h2 class="total">Total: {{ fetchedCart.total.toFixed(2) }} IQD</h2>
             <div class="actions">
-                <button type="button" class="close" @click="closeCart">Close</button>
+                <button type="button" class="close" @click="closeDialog">Close</button>
                 <button type="submit" class="submit">Proceed to Checkout</button>
             </div>
         </dialog>
@@ -37,16 +47,40 @@
 </template>
 
 <script>
+
 export default {
+    emits: ['close'],
+    props: ['isOpen'],
     methods: {
-        closeCart() {
-            this.$store.commit("setCartVisibility");
+        // closeCart() {
+        //     console.log("test");
+
+        //     this.$store.dispatch("setCartVisible", false);
+        // },
+        closeDialog() {
+            this.$emit('close');
+        }
+    },
+    data() {
+        return {
+            cartOpen: this.$store.getters.fetchedCart
         }
     },
     computed: {
         fetchedCart() {
             return this.$store.getters.fetchedCart;
+        },
+        isCartOpen() {
+            return this.$store.getters.cartVisibility
         }
+    },
+    methods: {
+        increaseQty(id, price) {
+            this.$store.dispatch("increaseQuantity", { productId: id, price: price })
+        },
+        decreaseQty(id, price) {
+            this.$store.dispatch("decreaseQuantity", { productId: id, price: price })
+        },
     },
     mounted() {
         this.$store.dispatch("fetchCart");
@@ -81,8 +115,10 @@ export default {
     margin-bottom: 2rem
 }
 
-.header .close-icon {
+.header button {
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .proudct-list {
@@ -103,8 +139,20 @@ export default {
 
 .price {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+
+.manage-quantity {
+    display: flex;
+    gap: 8px;
+}
+
+.manage-quantity button {
+    background: none;
+    border: 1px #000 solid;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .subtotal {

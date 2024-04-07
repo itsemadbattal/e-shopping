@@ -1,6 +1,6 @@
 <template>
   <TheSidebar />
-  <cart-dialog v-if="cartVisible" />
+  <cart-dialog v-if="cartVisible" @close="closeCart" />
   <main>
     <router-view></router-view>
   </main>
@@ -20,9 +20,16 @@ export default {
     cartVisible() {
       return this.$store.getters.cartVisibility;
     }
-  }
+  },
+  methods: {
+    closeCart() {
+      this.$store.commit('setCartVisibility', false);
+    }
+  },
 
 }
+
+
 </script>
 
 <style>

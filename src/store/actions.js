@@ -88,6 +88,10 @@ export default {
     }
   },
 
+  setCartVisible(context, payload) {
+    context.commit("setCartVisibility", payload);
+  },
+
   async addToLikedProducts(context, product) {
     const oldArray = context.state.likedProducts;
     const productExist = context.state.likedProducts.find(
@@ -103,5 +107,15 @@ export default {
       // console.log("doesnt exist");
       context.commit("setLikedProducts", newArray);
     }
+  },
+
+  increaseQuantity(context, payload) {
+    const { productId, price } = payload;
+    context.commit("increaseProductQuantity", { productId, price });
+  },
+
+  decreaseQuantity(context, payload) {
+    const { productId, price } = payload;
+    context.commit("decreaseProductQuantity", { productId, price });
   },
 };
