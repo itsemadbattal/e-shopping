@@ -3,7 +3,7 @@
         <dialog :open="isCartOpen" class="cart-dialog">
             <div class="header">
                 <h1>My Cart</h1>
-                <button @click="closeDialog">
+                <button @click="closeCart">
                     <iconify-icon icon="material-symbols:close" class="close-icon" color="black" width="30"
                         height="30" />
                 </button>
@@ -39,7 +39,7 @@
             </div>
             <h2 class="total">Total: {{ fetchedCart.total.toFixed(2) }} IQD</h2>
             <div class="actions">
-                <button type="button" class="close" @click="closeDialog">Close</button>
+                <button type="button" class="close" @click="closeCart">Close</button>
                 <button type="submit" class="submit">Proceed to Checkout</button>
             </div>
         </dialog>
@@ -49,17 +49,6 @@
 <script>
 
 export default {
-    emits: ['close'],
-    methods: {
-        // closeCart() {
-        //     console.log("test");
-
-        //     this.$store.dispatch("setCartVisible", false);
-        // },
-        closeDialog() {
-            this.$emit('close');
-        }
-    },
     data() {
         return {
             cartOpen: this.$store.getters.fetchedCart
@@ -80,6 +69,9 @@ export default {
         decreaseQty(id, price) {
             this.$store.dispatch("decreaseQuantity", { productId: id, price: price })
         },
+        closeCart() {
+            this.$store.dispatch("setCartVisible", false)
+        }
     },
     mounted() {
         this.$store.dispatch("fetchCart");
@@ -92,11 +84,10 @@ export default {
 <style scoped>
 .cart-dialog {
     height: 100%;
-    width: 30rem;
-    max-width: 80%;
+    width: 40rem;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     padding: 2rem;
     z-index: 9999;
     background-color: white;
@@ -202,7 +193,7 @@ export default {
     }
 
     .actions button {
-        padding: 10px 12px;
+        padding: 10px 22px;
     }
 }
 
