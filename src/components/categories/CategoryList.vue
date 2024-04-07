@@ -1,6 +1,7 @@
 <template>
     <div class="header" @click="goBack">
         <iconify-icon icon="ph:arrow-left-light" color="black" width="30" height="30" />
+        <h3>Categories</h3>
     </div>
     <ul class="categoryList">
 
@@ -40,22 +41,48 @@ export default {
     padding: 1rem;
 }
 
+.header h3 {
+    display: none;
+}
+
 .categoryList {
     display: flex;
+    justify-content: center;
+    align-items: center;
     animation: slideFromButtom 0.3s ease-in;
+
 }
 
 .categoryList li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     padding: 1rem;
     margin: 2rem 5rem;
-    width: 30rem;
-    height: 18rem;
+    width: 15rem;
+    height: 9rem;
     background-color: #fff;
-    text-align: center;
+    cursor: pointer;
 }
 
+@media(max-width: 768px) {
+    .categoryList {
+        flex-direction: column;
+    }
+
+    .categoryList li {
+        margin: 2rem auto;
+        width: 12rem;
+        height: 4rem;
+    }
+
+    .header h3 {
+        display: block;
+        text-align: center;
+    }
+}
 
 @keyframes slideFromButtom {
     from {
@@ -66,20 +93,6 @@ export default {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-
-
-@media(max-width: 768px) {
-    .categoryList {
-        flex-direction: column;
-    }
-
-    .categoryList li {
-        margin: 2rem auto;
-        width: 10rem;
-        height: 4rem;
     }
 }
 </style>
