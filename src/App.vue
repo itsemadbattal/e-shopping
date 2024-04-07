@@ -1,4 +1,5 @@
 <template>
+  <TheTopNav />
   <TheSidebar />
   <cart-dialog v-if="cartVisible" @close="closeCart" />
   <main>
@@ -9,15 +10,15 @@
 
 <script>
 
-
-
 import TheSidebar from './components/layout/TheSidebar.vue';
 import CartDialog from './components/cart/CartDialog.vue'
+import TheTopNav from './components/layout/TheTopNav.vue'
 
 export default {
   components: {
     TheSidebar,
-    CartDialog
+    CartDialog,
+    TheTopNav
   },
   computed: {
     cartVisible() {

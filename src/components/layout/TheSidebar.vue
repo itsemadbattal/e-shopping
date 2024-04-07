@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .navbar {
     position: fixed;
     left: 0;

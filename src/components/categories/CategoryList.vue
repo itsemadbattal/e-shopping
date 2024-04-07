@@ -4,7 +4,6 @@
         <h3>Categories</h3>
     </div>
     <ul class="categoryList">
-
         <li v-for="category in categories" :key="category">
             {{ category.toUpperCase() }}
         </li>
