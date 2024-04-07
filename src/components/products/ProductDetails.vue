@@ -64,8 +64,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 2rem 4rem 2rem;
-    /* margin: 0 0 1rem 5rem; */
+    padding: 2rem 2rem 6rem 2rem;
+    overflow-y: auto;
+    /* margin: 50rem; */
     animation: slideFromButtom 0.3s ease-out
 }
 
