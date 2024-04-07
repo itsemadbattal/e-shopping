@@ -66,7 +66,7 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    margin-left: 5rem;
+    margin: 0 0 1rem 5rem;
     animation: slideFromButtom 0.3s ease-out
 }
 
@@ -103,9 +103,6 @@ export default {
     width: 100%;
 }
 
-.action {
-    margin-bottom: 1rem;
-}
 
 .action button {
     padding: 1rem 5rem;
