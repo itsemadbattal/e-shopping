@@ -13,16 +13,12 @@
 
 
 <script>
-import { ref } from "vue";
-
 export default {
-
-
     data() {
         return {
             selectedCat: "",
             sort: "asc",
-            searchTerm: ref("")
+            searchTerm: ""
         }
     },
     computed: {
@@ -68,6 +64,7 @@ export default {
 .filters input {
     padding: 1rem;
     border-radius: 12px;
+    background-color: white;
 }
 
 
