@@ -17,8 +17,8 @@ const router = createRouter({
       params: true,
     },
 
-    { path: "/categories", component: Categories },
     { path: "/favorites", component: Favorites },
+    { path: "/categories", component: Categories },
   ],
 });
 

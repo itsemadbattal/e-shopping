@@ -28,13 +28,17 @@ npm run dev
 npm run build
 ```
 
+### API Used:
+
+The API used for this project is `https://fakestoreapi.com`
+
 ### Routes
 
 1. `/` Home page.
 1. `/products` Products page.
 1. `/products/:productId` Product details page, (productId) is a dynamic segment used to fetch single product data.
 1. `/favorites` Liked products page.
-1. `/favorites` Categories page.
+1. `/categories` Categories page.
 
 ### Vuex
 
@@ -56,7 +60,12 @@ npm run build
    1. Users can click on products to navigate to the corrosponding product details page.
 
 1. Product Details Page:
+
    1. Users can add product to cart.
    1. Users can add product to liked products.
+
+1. Favorite Products Page:
+   1. This page is in charge of displaying list of products that the user makred as favorite.
+   1. Users can unmark products in this page in which they will be removed from the page.
 
 NOTES: TALK ABOUT CART LIMITATIONS
