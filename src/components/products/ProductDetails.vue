@@ -16,7 +16,6 @@
                 <button @click="addToCart">ADD TO CART</button>
             </div>
         </div>
-
     </li>
 </template>
 
@@ -66,7 +65,7 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    margin: 0 0 1rem 5rem;
+    /* margin: 0 0 1rem 5rem; */
     animation: slideFromButtom 0.3s ease-out
 }
 

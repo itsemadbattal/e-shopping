@@ -26,6 +26,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 4rem;
     animation: slideFromButtom 0.3s ease-in;
 }
 
