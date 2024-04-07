@@ -14,6 +14,8 @@
             </div>
             <div class="action">
                 <button @click="addToCart">ADD TO CART</button>
+                <iconify-icon class="heart-icon" @click="addProductToFav" icon="ph:heart" color="red" width="30"
+                    height="30" />
             </div>
         </div>
     </li>
@@ -30,12 +32,13 @@ export default {
             product: {}
         }
     },
-    async created() {
-        const productData = await this.fetchSingleProduct(this.productId)
-        this.product = productData
-    },
 
     methods: {
+        addProductToFav(event) {
+            event.stopPropagation();
+
+            this.$store.dispatch("addToLikedProducts", this.product);
+        },
         async fetchSingleProduct(id) {
             try {
                 const res = await axios.get("https://fakestoreapi.com/products/" + id);
@@ -54,7 +57,12 @@ export default {
         addToCart() {
             this.$store.dispatch("addToCart", this.product)
         }
-    }
+    },
+
+    async created() {
+        const productData = await this.fetchSingleProduct(this.productId)
+        this.product = productData
+    },
 }
 
 </script>
@@ -65,7 +73,6 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 2rem 2rem 6rem 2rem;
-    /* margin: 50rem; */
     animation: slideFromButtom 0.3s ease-out
 }
 
@@ -102,6 +109,16 @@ export default {
     width: 100%;
 }
 
+.action .heart-icon {
+    cursor: pointer;
+}
+
+.action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
 
 .action button {
     padding: 1rem 5rem;
