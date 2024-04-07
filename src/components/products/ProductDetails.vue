@@ -13,7 +13,7 @@
                 <p>Size: S M L</p>
             </div>
             <div class="action">
-                <button>ADD TO CART</button>
+                <button @click="addToCart">ADD TO CART</button>
             </div>
         </div>
 
@@ -50,6 +50,10 @@ export default {
                 console.error(error);
             }
         },
+
+        addToCart() {
+            this.$store.dispatch("addToCart", this.product)
+        }
     }
 }
 
@@ -132,6 +136,9 @@ export default {
         font-size: 24px;
     }
 
+    .action {
+        margin: 0 auto;
+    }
 
 }
 </style>

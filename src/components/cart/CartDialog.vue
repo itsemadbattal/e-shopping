@@ -13,20 +13,20 @@
                 <li v-for="product in fetchedCart.products" :key="product.id">
                     <div class="info">
                         <img :src="product.image" />
-                        <h3>{{ product.title.slice(0, 15) }}...</h3>
+                        <h3>{{ product?.title?.slice(0, 15) }}...</h3>
                     </div>
                     <div class="price">
-                        <p>{{ product.price.toFixed(2) }} * {{ product.quantity }} = {{ (product.price *
-                            product.quantity).toFixed(2) }} IQD
+                        <p>{{ product?.price?.toFixed(2) }} * {{ product?.quantity }} = {{ (product?.price *
+                            product?.quantity).toFixed(2) }} IQD
                         </p>
-                        <!-- <div class="manage-quantity">
+                        <div class="manage-quantity">
                             <button @click="increaseQty(product.id, product.price)">
                                 <iconify-icon icon="ic:sharp-plus" color="black" width="25" height="25" />
                             </button>
                             <button @click="decreaseQty(product.id, product.price)">
                                 <iconify-icon icon="ic:sharp-minus" color="black" width="25" height="25" />
                             </button>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -50,7 +50,6 @@
 
 export default {
     emits: ['close'],
-    props: ['isOpen'],
     methods: {
         // closeCart() {
         //     console.log("test");
@@ -84,7 +83,6 @@ export default {
     },
     mounted() {
         this.$store.dispatch("fetchCart");
-        console.log(this.fetchedCart);
     }
 }
 

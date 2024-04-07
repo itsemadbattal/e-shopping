@@ -52,6 +52,24 @@ export default {
     }
   },
 
+  addProductToCart(state, data) {
+    console.log(state.cart);
+    const productIndex = state.cart.products.findIndex(
+      (product) => product.id === data.id
+    );
+    if (productIndex !== -1) {
+      const existingProduct = state.cart.products[productIndex];
+      existingProduct.quantity++;
+      state.cart.total += data.price;
+    } else {
+      const newProduct = { ...data, quantity: 1 };
+      state.cart.products.push(newProduct);
+      state.cart.total += data.price;
+    }
+
+    console.log(state.cart);
+  },
+
   setCartVisibility(state, data) {
     console.log(data);
     state.isCartOpen = data;

@@ -109,6 +109,10 @@ export default {
     }
   },
 
+  addToCart(context, payload) {
+    context.commit("addProductToCart", payload);
+  },
+
   increaseQuantity(context, payload) {
     const { productId, price } = payload;
     context.commit("increaseProductQuantity", { productId, price });
