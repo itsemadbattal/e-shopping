@@ -83,7 +83,7 @@ The API used for this project is `https://fakestoreapi.com`
    1. Users can increase/decrease the quantity of the products in cart which will fire up an action to update the cart stored in Vuex store.
    1. Additional data is present on this page. For example, product image, product price, product quantity, product total price in cart (product price \* product quantity), sub-total, discounts, shipping fees, and total price of the cart.
 
-## Folder Structure
+### Folder Structure
 
 1. Navigating through the prject structure will show seperation of concerns when it comes to reusing code and clean code.
 1. Inside the components folder in the src folder, six main folders can be found:
