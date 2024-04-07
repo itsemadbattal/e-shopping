@@ -12,7 +12,7 @@
                     </strong>
                 </div>
                 <div class="rating">
-                    <p>{{ product.rating.rate }}<span style="color:#FBDE9E;">&starf;</span> ({{ product.rating.count }})
+                    <p>{{ product.rating.rate }}<span style="color:#FBDE9E;">&starf;</span> | {{ product.rating.count }}
                         Reviews
                     </p>
                 </div>
