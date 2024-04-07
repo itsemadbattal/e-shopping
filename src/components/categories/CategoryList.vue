@@ -65,6 +65,7 @@ export default {
     height: 9rem;
     background-color: #fff;
     cursor: pointer;
+    text-align: center;
 }
 
 @media(max-width: 768px) {
