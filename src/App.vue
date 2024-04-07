@@ -8,6 +8,9 @@
 
 
 <script>
+
+
+
 import TheSidebar from './components/layout/TheSidebar.vue';
 import CartDialog from './components/cart/CartDialog.vue'
 

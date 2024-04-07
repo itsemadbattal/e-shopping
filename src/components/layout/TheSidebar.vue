@@ -22,9 +22,8 @@
                 </button>
             </li>
             <li>
-                <router-link to="/profile">
-                    <iconify-icon icon="iconamoon:profile" color="black" width="40" height="40" />
-                </router-link>
+                <router-link to="/categories">
+                    <iconify-icon icon="carbon:categories" color="black" width="40" height="40" /></router-link>
             </li>
         </ul>
     </nav>

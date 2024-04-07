@@ -32,6 +32,21 @@ export default {
     }
   },
 
+  async fetchCategories(context) {
+    try {
+      const res = await axios.get(
+        "https://fakestoreapi.com/products/categories"
+      );
+      if (res.status !== 200) {
+        throw Error("Could not fetch categories");
+      }
+      const data = await res.data;
+      context.commit("setCategories", data);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
   searchProductByName(context, payload) {
     context.commit("setSearchedProducts", payload);
   },
