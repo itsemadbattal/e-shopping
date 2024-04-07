@@ -1,6 +1,7 @@
 <template>
     <div class="filters">
-        <input type="search" class="seachbar" v-model="searchTerm" placeholder="Search by name" @input="handleSearch" />
+        <input type="search" class="seachbar" v-model="searchTerm" placeholder="Search by title"
+            @input="handleSearch" />
         <select name=" categories" v-model="selectedCat" @change="changeCat">
             <option value="" selected disabled>Category</option>
             <option v-for="cat in fetchedCategories" :value="cat" :key="cat">{{ cat }}</option>
@@ -38,7 +39,6 @@ export default {
             this.$store.dispatch("fetchProducts", { cat: this.selectedCat, sort: this.sort })
         },
         handleSearch() {
-            console.log('Search term:', this.searchTerm);
             this.$store.dispatch("searchProductByName", { searchTerm: this.searchTerm })
         }
     },

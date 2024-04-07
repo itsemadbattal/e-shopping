@@ -7,11 +7,17 @@ import getters from "./getters";
 const store = createStore({
   state() {
     return {
+      //originalProducts is used to help reset the product list to the old full list if search term is empty
+      originalProducts: [],
+
       loadedProducts: [],
       sliderProducts: [],
-      categories: [],
       likedProducts: [],
+
+      categories: [],
+
       fetchedProduct: {},
+
       cart: { products: [], total: 0 },
       isCartOpen: null,
     };

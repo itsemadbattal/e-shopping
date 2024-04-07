@@ -1,14 +1,19 @@
 export default {
   setProducts(state, data) {
     state.loadedProducts = data;
+    state.originalProducts = data;
   },
 
   setSearchedProducts(state, data) {
-    if (data.searchTerm.length === 0) {
-      state.loadedProducts = [...state.loadedProducts];
+    const searchTerm = data.searchTerm.toLowerCase();
+
+    if (searchTerm === "") {
+      // If the search term is empty, reset the products to the original full list
+      state.loadedProducts = state.originalProducts;
     } else {
-      state.loadedProducts = state.loadedProducts.filter((prod) =>
-        prod.title.toLowerCase().includes(data.searchTerm.toLowerCase())
+      // Filter products based on the search term
+      state.loadedProducts = state.originalProducts.filter((prod) =>
+        prod.title.toLowerCase().includes(searchTerm)
       );
     }
   },

@@ -15,7 +15,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch('fetchProducts', { cat: "", sort: "asc" });
+        this.$store.dispatch('fetchProducts', { cat: "", sort: "" });
     }
 }
 </script>
