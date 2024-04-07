@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import TheHome from "../components/pages/TheHome.vue";
 import ProductDetailsPage from "@/components/pages/ProductDetailsPage.vue";
 import Favorites from "@/components/pages/Favorites.vue";
+import Categories from "@/components/pages/Categories.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -16,7 +17,7 @@ const router = createRouter({
       params: true,
     },
 
-    { path: "/profile" },
+    { path: "/categories", component: Categories },
     { path: "/favorites", component: Favorites },
   ],
 });

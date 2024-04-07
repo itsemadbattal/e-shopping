@@ -56,6 +56,7 @@ export default {
     display: flex;
     overflow-x: auto;
     gap: 2rem;
+    animation: slideFromLeft 0.3s ease-out
 }
 
 .product {
@@ -106,6 +107,18 @@ export default {
 
     .info {
         font-size: 12px;
+    }
+}
+
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 </style>

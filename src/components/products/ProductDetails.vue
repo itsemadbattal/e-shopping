@@ -65,7 +65,6 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 2rem 2rem 6rem 2rem;
-    overflow-y: auto;
     /* margin: 50rem; */
     animation: slideFromButtom 0.3s ease-out
 }
