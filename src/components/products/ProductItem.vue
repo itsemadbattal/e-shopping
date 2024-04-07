@@ -5,7 +5,7 @@
                 }}</p>
                 <div class="info">
                     <strong>
-                        <p class="price">{{ product.price }}IQD</p>
+                        <p class="price">{{ product.price.toFixed(2) }} IQD</p>
                     </strong>
                     <strong>
                         <p>Size: S M L</p>

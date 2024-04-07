@@ -8,7 +8,7 @@
             <p>{{ product.description }}</p>
             <div class="info">
                 <strong>
-                    <p>{{ product.price }} IQD</p>
+                    <p>{{ product?.price?.toFixed(2) }} IQD</p>
                 </strong>
                 <p>Size: S M L</p>
             </div>
@@ -101,6 +101,10 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+.action {
+    margin-bottom: 1rem;
 }
 
 .action button {

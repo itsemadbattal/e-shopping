@@ -36,9 +36,11 @@ export default {
     context.commit("setSearchedProducts", payload);
   },
 
-  async fetchProductsForSlider(context) {
+  async fetchProductsForSlider(context, payload) {
     try {
-      const res = await axios.get("https://fakestoreapi.com/products?limit=5");
+      const res = await axios.get(
+        "https://fakestoreapi.com/products?limit=" + payload
+      );
       if (res.status !== 200) {
         throw Error("Could not fetch products for slider");
       }
