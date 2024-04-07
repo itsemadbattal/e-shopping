@@ -193,6 +193,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+    .cart-dialog {
+        width: 100%;
+    }
 
     .actions .close {
         display: none;

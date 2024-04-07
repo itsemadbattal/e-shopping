@@ -49,7 +49,6 @@ export default {
     justify-content: center;
     align-items: center;
     animation: slideFromButtom 0.3s ease-in;
-
 }
 
 .categoryList li {
@@ -65,6 +64,7 @@ export default {
     background-color: #fff;
     cursor: pointer;
     text-align: center;
+
 }
 
 @media(max-width: 768px) {
@@ -73,7 +73,7 @@ export default {
     }
 
     .categoryList li {
-        margin: 2rem auto;
+        margin: 1rem auto;
         width: 12rem;
         height: 4rem;
     }

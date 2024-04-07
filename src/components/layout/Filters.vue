@@ -62,6 +62,7 @@ export default {
 
 .filters select,
 .filters input {
+    border: 1px #000 solid;
     padding: 1rem;
     border-radius: 12px;
     background-color: white;
