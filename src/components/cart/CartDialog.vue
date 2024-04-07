@@ -193,6 +193,11 @@ export default {
 }
 
 @media (max-width: 768px) {
+
+    .actions .close {
+        display: none;
+    }
+
     .actions button {
         padding: 10px 12px;
     }
