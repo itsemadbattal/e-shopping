@@ -36,7 +36,7 @@ The API used for this project is `https://fakestoreapi.com`
 
 ### API Used
 
-`https://e-shopping-eosin.vercel.app`
+[API](https://e-shopping-eosin.vercel.app)
 
 ### Routes
 
@@ -77,9 +77,9 @@ The API used for this project is `https://fakestoreapi.com`
 
 1. User Cart Page:
 
-   1. Initially, when this page is loaded, the client created a cart on the fly.
-   1. The cart contains an empty array of products and a total set to zero.
-   1. Users can add new products to the cart which will save the new cart to the store only due to limitations of the API where users cannot store their data in the API's database as mentioned in their offical documentations `https://fakestoreapi.com`.
+   1. Initially, when this page is loaded, the client creates a cart on the fly.
+   1. The cart contains an empty array of products and a total cart price set to zero.
+   1. Users can add new products to the cart which will save the new cart only to the store due to limitations of the API where users cannot store their data in the API's database as mentioned in their offical documentations (https://e-shopping-eosin.vercel.app).
    1. Users can increase/decrease the quantity of the products in cart which will fire up an action to update the cart stored in Vuex store.
    1. Additional data is present on this page. For example, product image, product price, product quantity, product total price in cart (product price \* product quantity), sub-total, discounts, shipping fees, and total price of the cart.
 
