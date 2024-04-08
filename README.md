@@ -36,7 +36,7 @@ The API used for this project is `https://fakestoreapi.com`
 
 ### API Used
 
-[API](https://e-shopping-eosin.vercel.app)
+(https://e-shopping-eosin.vercel.app)
 
 ### Routes
 
