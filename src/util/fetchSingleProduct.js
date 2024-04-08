@@ -1,5 +1,8 @@
 import axios from "axios";
 
+// this utility function is used for fetching single products to be displayed in the cart
+//used in fetchCart action
+
 export default async function fetchSingleProduct(id) {
   try {
     const res = await axios.get("https://fakestoreapi.com/products/" + id);
