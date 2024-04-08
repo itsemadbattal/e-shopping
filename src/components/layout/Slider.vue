@@ -1,9 +1,6 @@
 <template>
     <div class="wrapper">
         <slider-card v-for="product in products" class="product" @click="navigateToProduct(product.id)">
-            <!-- <div class="image-container">
-                <img :src="product.image" />
-            </div> -->
 
             <div class="header">
                 <div class="subheader">
@@ -83,10 +80,6 @@ export default {
     object-fit: contain;
 }
 
-/* 
-.image-container {
-    margin: 0 auto;
-} */
 
 .image-container img {
     width: 40%;

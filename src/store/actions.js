@@ -57,20 +57,6 @@ export default {
     }
   },
 
-  // searchProductByName(context, payload) {
-  //   const { searchTerm } = payload;
-  //   const products = context.state.loadedProducts;
-
-  //   if (searchTerm === "") {
-  //     context.commit("setProducts", products);
-  //   } else {
-  //     const filteredProducts = products.filter((prod) =>
-  //       prod.title.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //     context.commit("setProducts", filteredProducts);
-  //   }
-  // },
-
   searchProductByName(context, payload) {
     context.commit("setSearchedProducts", payload);
   },

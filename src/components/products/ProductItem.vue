@@ -61,7 +61,6 @@ export default {
     height: 8rem;
     object-fit: contain;
     margin-bottom: 1rem;
-    /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); */
 }
 
 .product-title {
