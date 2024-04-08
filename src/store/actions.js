@@ -6,10 +6,17 @@ export default {
   async fetchProducts(context, payload) {
     try {
       //if cat is not provided
-      if (payload.cat.length === 0) {
+      if (payload.cat.length === 0 && payload.sort.length !== 0) {
         const res = await axios.get(
           "https://fakestoreapi.com/products?sort=" + payload.sort
         );
+        if (res.status !== 200) {
+          throw Error("Could not fetch products");
+        }
+        const data = await res.data;
+        context.commit("setProducts", data);
+      } else if (payload.cat.length === 0 || payload.sort.length === 0) {
+        const res = await axios.get("https://fakestoreapi.com/products");
         if (res.status !== 200) {
           throw Error("Could not fetch products");
         }
@@ -19,7 +26,10 @@ export default {
       //if cat is provided
       else {
         const res = await axios.get(
-          "https://fakestoreapi.com/products/category/" + payload.cat
+          "https://fakestoreapi.com/products/category/" +
+            payload.cat +
+            "?sort=" +
+            payload.sort
         );
         if (res.status !== 200) {
           throw Error("Could not fetch products");
