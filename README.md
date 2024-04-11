@@ -102,5 +102,5 @@ The API used for this project is `https://fakestoreapi.com`
 
    1. this folder has an index file which houses all the logic related to routes and their components.
 
-1. Route Not Found Situation:
+1. Route Not Found Case:
    1. For this scenario, NotFound file can be found in pages folder in components. This component will be rendere in case a user visited a url that is not registerd.
