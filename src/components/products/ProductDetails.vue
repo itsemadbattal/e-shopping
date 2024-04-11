@@ -72,6 +72,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 5rem;
     padding: 2rem 2rem 6rem 2rem;
     animation: slideFromButtom 0.3s ease-out
 }
